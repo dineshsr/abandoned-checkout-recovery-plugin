@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<title>Add Schedule</title>
+{% endblock %}
+
+{% block body %}
+<div class="schContainer">
+    <h3 class="pageTitle">Add Schedule Template</h3>
+    <div class="elements">
+        <span>Schedule Name : </span>
+        <input id="schTempName" name="schTempName" type="text"/>
+    </div>
+    <div class="elements"><b>Schedule Timings</b></div>
+    <div class="elements" id="schCrit">
+        <div class="conditions" id="critDiv_1000">
+            <span>Days : </span><input id="days_1000" maxlength="2" name="days_1000" pattern="\d*" placeholder="10"
+                                       type="text"/>
+            <span>Hours : </span><input id="hours_1000" maxlength="2" name="hours_1000" pattern="\d*" placeholder="10"
+                                        type="text"/>
+            <span>Minutes : </span>
+            <select id="mins_1000" name="mins_1000">
+                <option value="-1">select mins</option>
+                <option value="00">00 mins</option>
+                <option value="15">15 mins</option>
+                <option value="30">30 mins</option>
+                <option value="45">45 mins</option>
+            </select>
+            <button onclick="addNewRow(this.parentNode)" type="button">Add</button>
+            <button onclick="removeRow(this)" type="button">Remove</button>
+        </div>
+    </div>
+    <br/>
+    <button onclick="validateData()">Create Schedule Template</button>
+</div>
+{% endblock %}

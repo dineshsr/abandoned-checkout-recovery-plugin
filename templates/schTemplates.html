@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<title>Schedules</title>
+{% endblock %}
+
+{% block body %}
+<div class="dispSchedules">
+    <h3 class="pageTitle">Available Schedules</h3>
+    <table>
+        <tr>
+            <th>Schedule Name</th>
+            <th>Schedule Timings</th>
+            <th>Default</th>
+        </tr>
+        <tr>
+            <td>
+                <span value="id">Default</span>
+            </td>
+            <td>
+                <p>Schedule to run after 0 days, 0 hours and 15 mins</p>
+                <p>Schedule to run after 0 days, 0 hours and 15 mins</p>
+            </td>
+            <td>True</td>
+            <td><button type="button" onclick="setDefaultTemplate(this)">Set default</button></td>
+        </tr>
+        <tr>
+            <td>
+                <span value="id">Custom1</span>
+            </td>
+            <td>
+                <p>Schedule to run after 0 days, 0 hours and 15 mins</p>
+                <p>Schedule to run after 0 days, 0 hours and 15 mins</p>
+                <p>Schedule to run after 0 days, 0 hours and 15 mins</p>
+                <p>Schedule to run after 0 days, 0 hours and 15 mins</p>
+            </td>
+            <td>False</td>
+            <td><button type="button" onclick="setDefaultTemplate(this)">Set default</button></td>
+        </tr>
+    </table>
+</div>
+
+{% endblock %}

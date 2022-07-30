@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
+          name="viewport">
+    <meta content="ie=edge" http-equiv="X-UA-Compatible">
+    <script src="../static/js/main.js"></script>
+    <link href="../static/css/main.css" rel="stylesheet"></link>
+    {% block head %}{% endblock %}
+</head>
+<body>
+<header>
+    <div class="container">
+        <h1 class="appTitle">Abandoned Checkout Recovery Plugin</h1>
+        <ul class="menu" id="list">
+            <li><a href="/">Home</a></li>
+            <li><a href="/schedules">Available Schedule Templates</a></li>
+            <li><a href="/addschedules">Add Schedule Template</a></li>
+            <li><a href="/cartOrderDetails">Cart & Orders</a></li>
+            <li><a href="/schedulesForCart">Scheduled Emails</a></li>
+            <li><a href="/addOrder">Add Order</a></li>
+        </ul>
+    </div>
+</header>
+<br>
+<br>
+{% block body %}{% endblock %}
+</body>
+</html>

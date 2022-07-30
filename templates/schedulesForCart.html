@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<title>Homepage</title>
+{% endblock %}
+
+{% block body %}
+<div class="scheduledEmails">
+    <h3 class="pageTitle">Scheduled Emails for Abandoned Checkout</h3>
+    <table>
+        <tr>
+            <th>Customer Email</th>
+            <th>Cart Details</th>
+            <th>Schedules</th>
+        </tr>
+        <tr>
+            <td>
+                <span>SRD</span>
+            </td>
+            <td>
+                5 items
+            </td>
+            <td>
+                <p>Schedule to run after 0 days, 0 hours and 15 mins</p>
+                <p>Schedule to run after 0 days, 0 hours and 15 mins</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <span>Customer 1</span>
+            </td>
+            <td>2 items</td>
+            <td>
+                <p>Schedule to run after 0 days, 0 hours and 15 mins</p>
+                <p>Schedule to run after 0 days, 0 hours and 15 mins</p>
+                <p>Schedule to run after 0 days, 0 hours and 15 mins</p>
+                <p>Schedule to run after 0 days, 0 hours and 15 mins</p>
+            </td>
+
+        </tr>
+    </table>
+</div>
+{% endblock %}

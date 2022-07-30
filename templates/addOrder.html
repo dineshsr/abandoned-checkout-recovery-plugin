@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<title>Add Schedule</title>
+{% endblock %}
+
+{% block body %}
+<div class="addToCart">
+    <h3 class="pageTitle">Add to Cart</h3>
+    <div class="elements">
+        <span>Name : </span>
+        <input id="cxName" name="cxName" type="text"/>
+    </div>
+    <div class="elements">
+        <span>Item Count : </span>
+        <input id="cxItems" name="cxItems" type="number" maxlength="3"/>
+    </div>
+    <br/>
+    <button onclick="validateAddToCart()">Add to Cart</button>
+</div>
+{% endblock %}
