@@ -1,8 +1,11 @@
-from flask import Flask, render_template
-from flask_sqlalchemy import SQLAlchemy
 from datetime import datetime
 
+from flask import Flask, render_template, request
+from flask_cors import CORS
+from flask_sqlalchemy import SQLAlchemy
+
 app = Flask(__name__)
+cors = CORS(app)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///CheckoutRecovery.db'
 db = SQLAlchemy(app)
 
@@ -50,9 +53,12 @@ def schTemplates():
     return render_template("schTemplates.html")
 
 
-@app.route("/addschedules")
+@app.route("/addschedules", methods=['POST', 'GET'])
 def addschedules():
-    return render_template("addSchedule.html")
+    if request.method == 'POST':
+        pass
+    else:
+        return render_template("addSchedule.html")
 
 
 @app.route("/cartOrderDetails")
@@ -65,9 +71,13 @@ def schedulesForCart():
     return render_template("schedulesForCart.html")
 
 
-@app.route("/addOrder")
+@app.route("/addOrder", methods=['POST', 'GET'])
 def addOrder():
-    return render_template("addOrder.html")
+    if request.method == 'POST':
+        params = request.get_json();
+        return {"status": "success"}
+    else:
+        return render_template("addOrder.html")
 
 
 if __name__ == "__main__":
