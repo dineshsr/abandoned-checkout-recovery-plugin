@@ -6,12 +6,48 @@
 
 {% block body %}
 <h3 class="pageTitle">Cart and Order Details</h3>
-<div>
-    <div>
+
+    <div class="dispSchedules">
         <h4>Cart Details</h4>
+        <table>
+            <tr>
+                <th>CX Name</th>
+                <th>Item Count</th>
+                <th>Email</th>
+                <th>Date Created</th>
+                <th>Place Order</th>
+            </tr>
+
+        {% for cart in carts %}
+        <tr>
+             <td>{{cart[1]}}</td>
+        <td>{{cart[2]}}</td>
+        <td>{{cart[3]}}</td>
+        <td>{{cart[4]}}</td>
+        <td> <button onclick="placeOrder('{{cart[0]}}')">Place Order</button></td>
+        </tr>
+        {% endfor %}
+            </table>
     </div>
-    <div>
+    <div class="dispSchedules">
         <h4>Order Details</h4>
+        <table>
+            <tr>
+                <th>CX Name</th>
+                <th>Item Count</th>
+                <th>Email</th>
+                <th>Date Placed</th>
+            </tr>
+
+        {% for order in orders %}
+        <tr>
+             <td>{{order[1]}}</td>
+        <td>{{order[2]}}</td>
+        <td>{{order[3]}}</td>
+        <td>{{order[4]}}</td>
+        </tr>
+        {% endfor %}
+            </table>
     </div>
-</div>
+
 {% endblock %}

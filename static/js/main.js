@@ -50,11 +50,11 @@ function deleteScheduleRow(rowObj) {
 
 function validateData() //TODO
 {
-    var schTempName = document.getElementById("schTempName").value;
-    if(schTempName==""){
+    let schTempName = document.getElementById("schTempName").value;
+    if (schTempName == "") {
         alert("Provide a valid schedule name!")
         return;
-    }else{
+    } else {
         //do api call check for name already exists
     }
     let resultJson = {};
@@ -89,22 +89,60 @@ function validateData() //TODO
         }
     }
     resultJson['timings'] = timeArray;
-    alert(JSON.stringify(resultJson));
+
+    let httpRequest = new XMLHttpRequest();
+    httpRequest.open("POST", "http://localhost:9090/addschedules");
+    httpRequest.setRequestHeader('Content-Type', 'application/json');
+    params = JSON.stringify(resultJson);
+    console.log(params)
+    httpRequest.send(params);
+    httpRequest.onreadystatechange = function () {
+        if (httpRequest.readyState == 4 && httpRequest.status == 200) {
+            let responseJson = JSON.parse(httpRequest.responseText).status;
+            console.log(responseJson);
+        }
+    }
 }
 
 function validateAddToCart() {
     let cxName = document.getElementById("cxName").value;
     let cxItems = document.getElementById("cxItems").value;
-    if(cxName==""||cxItems==""){
+    if (cxName == "" || cxItems == "") {
         alert("Please provide valid details")
         return;
     }
+    let httpRequest = new XMLHttpRequest();
+    httpRequest.open("POST", "http://localhost:9090/addOrder");
+    httpRequest.setRequestHeader('Content-Type', 'application/json');
     let detailsJson = {};
     detailsJson['name'] = cxName;
     detailsJson['count'] = cxItems;
-    alert(JSON.stringify(detailsJson));
+    params = JSON.stringify(detailsJson);
+    httpRequest.send(params);
+    httpRequest.onreadystatechange = function () {
+        if (httpRequest.readyState == 4 && httpRequest.status == 200) {
+            let responseJson = JSON.parse(httpRequest.responseText).status;
+            console.log(responseJson);
+        }
+    }
 }
 
-function setDefaultTemplate(rowData){
-    alert(rowData.parentNode.parentNode.querySelector("span").value);
+function placeOrder(id){
+    let httpRequest = new XMLHttpRequest();
+    httpRequest.open("POST", "http://localhost:9090/moveToOrder");
+    httpRequest.setRequestHeader('Content-Type', 'application/json');
+    let detailsJson = {};
+    detailsJson['id'] = id;
+    params = JSON.stringify(detailsJson);
+    httpRequest.send(params);
+    httpRequest.onreadystatechange = function () {
+        if (httpRequest.readyState == 4 && httpRequest.status == 200) {
+            let responseJson = JSON.parse(httpRequest.responseText).status;
+            console.log(responseJson);
+        }
+    }
+}
+
+function setDefaultTemplate(rowData) {
+    alert(rowData.parentNode.parentNode.querySelector("span"));
 }
